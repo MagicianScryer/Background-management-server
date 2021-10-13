@@ -1,0 +1,108 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章发表页</title>
+    <!-- 导入layui的css -->
+    <link rel="stylesheet" href="/assets/lib/layui/css/layui.css">
+    <!-- 导入图片裁剪区域的css -->
+    <link rel="stylesheet" href="/assets/lib/cropper/cropper.css">
+    <!-- 导入自己的css -->
+    <link rel="stylesheet" href="/assets/css/article/article_put.css">
+    <!-- 导入jQueryjs库 -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- 导入layuijs库 -->
+    <script src="/assets/lib/layui/layui.all.js"></script>
+    <!-- 导入baseAPIjs插件 -->
+    <script src="/assets/js/baseAPI.js"></script>
+    <!-- 导入图片裁剪的js库 -->
+    <script src="/assets/lib/cropper/Cropper.js"></script>
+    <script src="/assets/lib/cropper/jquery-cropper.js"></script>
+    <!-- 导入模板引擎的js -->
+    <script src="/assets/lib/template-web.js"></script>
+    <!-- 富文本 -->
+    <script src="/assets/lib/tinymce/tinymce.min.js"></script>
+    <script src="/assets/lib/tinymce/tinymce_setup.js"></script>
+    <!-- 导入图片裁剪区域的js -->
+    <script src="/assets/lib/cropper/Cropper.js"></script>
+    <script src="/assets/lib/cropper/jquery-cropper.js"></script>
+    <!-- 导入自己的js库 -->
+    <script src="/assets/js/article/artile_put.js"></script>
+
+</head>
+
+<body>
+    <!-- 面板卡片区域 -->
+    <div class="layui-card">
+        <div class="layui-card-header">写文章</div>
+        <div class="layui-card-body">
+            <form class="layui-form" id="crearArt" lay-filter="putArt">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">文章标题</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" placeholder="请输入文章标题" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">文章分类</label>
+                    <div class="layui-input-block">
+                        <select name="cate_id" lay-verify="required" id="cate_idslt">
+                        
+                      </select>
+                    </div>
+                </div>
+                <!-- 富文本编辑器 -->
+                <div class="layui-form-item">
+                    <!-- 左侧的 label -->
+                    <label class="layui-form-label">文章内容</label>
+                    <!-- 为富文本编辑器外部的容器设置高度 -->
+                    <div class="layui-input-block" style="height: 400px;">
+                        <!-- 重要：将来这个 textarea 会被初始化为富文本编辑器 -->
+                        <textarea name="content"></textarea>
+                    </div>
+                </div>
+                <!-- 图片裁剪区域 -->
+                <div class="layui-form-item">
+                    <!-- 左侧的 label -->
+                    <label class="layui-form-label">文章封面</label>
+                    <!-- 选择封面区域 -->
+                    <div class="layui-input-block cover-box">
+                        <!-- 左侧裁剪区域 -->
+                        <div class="cover-left">
+                            <img id="image" src="/assets/images/sample2.jpg" alt="" />
+                        </div>
+                        <!-- 右侧预览区域和选择封面区域 -->
+                        <div class="cover-right">
+                            <!-- 预览的区域 -->
+                            <div class="img-preview"></div>
+                            <!-- 选择封面按钮 -->
+                            <input type="file" name="cover_img" id="btnFile" style="display: none;" accept="image/png,image/jpeg,image/gif">
+                            <button type="button" class="layui-btn layui-btn-danger" id="btnBFile">选择封面</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 提交按钮区域 -->
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit>发布</button>
+                        <button class="layui-btn  layui-btn-primary" lay-submit id="cg">存为草稿</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- 定义下拉选项区域的html-->
+    <script type="text/html" id="optionHtml">
+        <option value="">请选择文章分类</option>
+        {{each data}}
+        <option value="{{$value.Id}}">{{$value.name}}</option>
+        {{/each}}
+    </script>
+
+    <script>
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 15px;
+    background-color: #f2f3f5;
+}
+
+.layui-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#layer_open {
+    padding-top: 10px;
+    padding-right: 40px;
+}
+
+#cplForm {
+    padding-top: 10px;
+    padding-right: 40px;
+}
